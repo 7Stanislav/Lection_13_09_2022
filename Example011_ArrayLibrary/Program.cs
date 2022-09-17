@@ -22,7 +22,29 @@ void PrintArray(int[] col) //Метод, который печатает мас�
 
 }
 
+int IndexOf(int[] collection, int find) //Метод, который возвращает значение
+{
+    int count = collection.Length;
+    int index = 0;
+    int position = -1; //На тот случай, когда в массиве не будет искомого числа. Будет выведена позиция "-1"
+
+    while (index < count)
+    {
+        if(collection[index] == find) //если index совпал с find - нужно куда-то сохранить позицию
+        {
+            position = index;
+            break;
+        }
+        index++;
+    }
+    return position;
+}
+
 int[] array = new int [10]; // определим новый масив и укажем, что в нем 10 элементов
 
 FillArray(array);
 PrintArray(array);
+Console.WriteLine();
+
+int pos = IndexOf(array, 4);
+Console.WriteLine(pos);
